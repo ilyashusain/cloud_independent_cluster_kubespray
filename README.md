@@ -1,6 +1,6 @@
-#gcloud_k8s_cluster_kubespray
+# gcloud_k8s_cluster_kubespray
 
-##Prerequisites
+## Prerequisites
 
 - 3 Ubuntu 18.04 instances
 

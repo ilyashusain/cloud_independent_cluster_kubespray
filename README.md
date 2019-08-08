@@ -14,6 +14,8 @@ Kubespray operates by way of ansible playbooks (an open-source automation tool w
 
 ## Guide:
 
+1. Create 3 ubuntu 18.04 instances. 1 instance is a bastion host, 1 instance is a master, 1 instance is a worker.
 
+2. ssh into the bastion machine
 
 `ssh-keygen -t rsa`

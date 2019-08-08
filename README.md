@@ -1,4 +1,4 @@
-# gcloud_k8s_cluster_kubespray
+# cloud_independent_cluster_kubespray
 
 ## Prerequisites:
 

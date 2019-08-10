@@ -2,7 +2,7 @@
 
 ## Prerequisites:
 
-- A hypervisor of your choice to spin up Ubuntu machines
+- Any hypervisor that can spin up Ubuntu machines
 
 ## Introduction:
 

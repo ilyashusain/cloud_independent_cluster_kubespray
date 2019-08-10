@@ -20,8 +20,11 @@ Kubespray operates by way of ansible playbooks (an open-source automation tool w
 
 ```
 sudo apt update
-sudo apt install python3-pip
+sudo apt install python3-pip -y
 sudo pip3 install --upgrade pip
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
 cd .ssh && ssh-keygen -t rsa && cd
 ```
 
@@ -34,3 +37,25 @@ cd .ssh && ssh-keygen -t rsa && cd
 `<ENTER USERNAME HERE> ALL=(ALL) NOPASSWD:ALL`
 
 save with :wq!.
+
+5. Download kubespray and install the requirments file:
+
+git clone https://github.com/kubernetes-sigs/kubespray.git && cd kubespray && sudo pip install -r requirements.txt && cp -rfp inventory/sample inventory/mycluster
+
+6. Declare the ips to be used by ansible, these should be the internal ips of the vms:
+
+`declare -a IPS=(<MASTER NODE INTERNAL IP> <WORKER NODE INTERNAL IP>)`
+
+and set the config file environemnt variable:
+
+`CONFIG_FILE=inventory/mycluster/hosts.yml python3 contrib/inventory_builder/inventory.py ${IPS[@]}`
+
+7. Deploy the cluster:
+
+`ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml`
+
+8. ssh to your aster node and run:
+
+`mkdir -p $HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config`
+
+You can now interact with your cluster.

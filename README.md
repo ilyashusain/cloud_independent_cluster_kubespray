@@ -10,11 +10,11 @@ In this article we will create a kubernetes cluster from former principles. This
 
 This will be done on google cloud, a high-level cloud; this is for the sake of simplicity. However, as will be demonstarted, the cloud provider is not important, and therefore this guide is applicable to all cloud providers. All that matters is that the machines exist and are up.
 
-Kubespray operates by way of ansible playbooks (an open-source automation tool written in python) that provision the necessary components onto the machines, thereby qualifying them as *nodes*. So in the case of kubespray, there is a pre-existing common framework (python) that integrates itself into the machines hardware easily as in the case of most linux operating systems.
+Kubespray operates by way of ansible playbooks (an open-source automation tool written in python) that provision the necessary components onto the machines, thereby qualifying them as *nodes*. So in the case of kubespray, there is a pre-existing common automation framework (Ansible) that is human readable.
 
 # Brief:
 
-In the steps that follow, we will create 3 Ubuntu 18.04 instances comprising of 1 bastion host, 1 master, 1 worker machine (for the sake of simplicity and time), provision the machines with the necessary kubernetes components qualifying them as nodes, install Rancher for dashboarding, and install helm to deploy an  EFK stack (elasticsearch, fluentbit and kibana) for advanced logging functionality and visualization.
+In the steps that follow, we will create 3 Ubuntu 18.04 instances comprising of 1 bastion host, 1 master, 1 worker machine (for the sake of simplicity and time), provision the machines with the necessary kubernetes components qualifying them as nodes, install Rancher for dashboarding, and install helm to deploy an EFK stack (elasticsearch, fluentbit and kibana) for advanced logging functionality and visualization.
 
 ## Guide:
 

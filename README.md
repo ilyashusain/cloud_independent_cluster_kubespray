@@ -10,7 +10,7 @@ In this article we will create a kubernetes cluster from former principles. This
 
 This will be done on google cloud, a high-level cloud; this is for the sake of simplicity. However, as will be demonstarted, the cloud provider is not important, and therefore this guide is applicable to all cloud providers. All that matters is that the machines exist and are up.
 
-Kubespray operates by way of ansible playbooks (an open-source automation tool written in python) that provision the necessary components onto the machines, thereby qualifying them as *nodes*. So in the case of kubespray, there is a pre-existing common automation framework (Ansible) that is human readable.
+Kubespray operates by way of ansible playbooks (an open-source automation tool written in python) that provision the necessary components onto the machines, thereby qualifying them as *nodes*. So in the case of kubespray, there is a pre-existing common automation framework (Ansible) that does the heavy work for us and is conveniently human readable, too.
 
 # Brief:
 

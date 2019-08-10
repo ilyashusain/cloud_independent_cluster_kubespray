@@ -55,8 +55,28 @@ and set the config file environemnt variable:
 
 `ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml`
 
-8. ssh to your aster node and run:
+8. ssh to your master node and run:
 
 `mkdir -p $HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config`
 
-You can now interact with your cluster.
+You can now interact with your cluster from the master.
+
+9. On the bastion host, install docker and then install rancher:
+
+```
+sudo apt install docker.io -y
+sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
+```
+
+Now you access the rancher web UI from the bastion hosts ip.
+
+10. Install helm on the master node and deploy the server side component (tiller) on to your cluster:
+
+```
+sudo snap install helm --classic
+kubectl -n kube-system create serviceaccount tiller
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+helm init --service-account tiller
+```
+
+You can now deploy helm charts on to your cluster, be it from the rancher web UI or from the command line.

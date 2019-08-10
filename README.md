@@ -47,7 +47,7 @@ save with :wq!. Repeat this step on the worker node.
 
 5. Download kubespray, install the requirments file and create an ansible inventory for your cluster by executing:
 
-git clone https://github.com/kubernetes-sigs/kubespray.git && cd kubespray && sudo pip install -r requirements.txt && cp -rfp inventory/sample inventory/mycluster
+```git clone https://github.com/kubernetes-sigs/kubespray.git && cd kubespray && sudo pip install -r requirements.txt && cp -rfp inventory/sample inventory/mycluster```
 
 6. Declare the ips to be used by ansible, these should be the internal ips of the vms:
 

@@ -18,7 +18,9 @@ In the steps that follow, we will create 3 Ubuntu 18.04 instances comprising of 
 
 ## Guide:
 
-1. Create 3 ubuntu 18.04 instances. 1 instance is a bastion host, 1 instance is a master, 1 instance is a worker. You can do this manually, or via an infrastucture-as-code automation tool.
+1. Create 3 ubuntu 18.04 instances with at least 2 vCPU. 1 instance is a bastion host, 1 instance is a master, 1 instance is a worker. You can do this manually, or via an infrastucture-as-code automation tool.
+
+NOTE: If you go below 2 vCPU on your nodes, you will not be able to run the fluentbit and elasticsearch pods. These are cpu and memory hungry applications.
 
 2. ssh into the bastion host, in the home directory run (copy and paste into the shell):
 
@@ -83,4 +85,4 @@ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceac
 helm init --service-account tiller
 ```
 
-You can now deploy helm charts on to your cluster, be it from the rancher web UI (<cluster name>/Default, select "Apps" from the top panel, then click "Launch"), or from the command line, this decision is up to you.
+You can now deploy the EFK helm chart on to your cluster, be it from the rancher web UI (<cluster name>/Default, select "Apps" from the top panel, then click "Launch", scroll down until you see the EFK stack and click "view details", scroll down again and click "Launch"), or from the command line, this decision is up to you as the result is the same.

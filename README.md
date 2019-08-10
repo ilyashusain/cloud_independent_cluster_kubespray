@@ -20,11 +20,8 @@ Kubespray operates by way of ansible playbooks (an open-source automation tool w
 
 ```
 sudo apt update
-
 sudo apt install python3-pip
-
 sudo pip3 install --upgrade pip
-
 cd .ssh && ssh-keygen -t rsa && cd
 ```
 

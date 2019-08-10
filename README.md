@@ -25,18 +25,19 @@ sudo pip3 install --upgrade pip
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
-cd .ssh && ssh-keygen -t rsa && cd
+git clone https://github.com/kubernetes-sigs/kubespray.git && cd kubespray && sudo pip install -r requirements.txt && cp -rfp inventory/sample inventory/mycluster
+cd && cd .ssh && ssh-keygen -t rsa && cd
 ```
 
 `cat` the `id_rsa.pub` file and copy this to your clipboard.
 
-3. ssh into the master node and edit the .ssh/authorized_keys file, copy in the public key you just copied.
+3. ssh into the master node and edit the .ssh/authorized_keys file, copy in the public key you just copied. Repeat this step for the worker node.
 
 4. On the master node, execute `sudo vim /etc/sudoers` and copy in with your username:
 
 `<ENTER USERNAME HERE> ALL=(ALL) NOPASSWD:ALL`
 
-save with :wq!.
+save with :wq!. Repeat this step on the worker node.
 
 5. Download kubespray and install the requirments file:
 

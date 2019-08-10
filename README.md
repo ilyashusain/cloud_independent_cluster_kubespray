@@ -16,6 +16,24 @@ Kubespray operates by way of ansible playbooks (an open-source automation tool w
 
 1. Create 3 ubuntu 18.04 instances. 1 instance is a bastion host, 1 instance is a master, 1 instance is a worker.
 
-2. ssh into the bastion machine
+2. ssh into the bastion host, in the home directory run:
 
-`ssh-keygen -t rsa`
+```
+sudo apt update
+
+sudo apt install python3-pip
+
+sudo pip3 install --upgrade pip
+
+cd .ssh && ssh-keygen -t rsa && cd
+```
+
+`cat` the `id_rsa.pub` file and copy this to your clipboard.
+
+3. ssh into the master node and edit the .ssh/authorized_keys file, copy in the public key you just copied.
+
+4. On the master node, execute `sudo vim /etc/sudoers` and copy in with your username:
+
+`<ENTER USERNAME HERE> ALL=(ALL) NOPASSWD:ALL`
+
+save with :wq!.

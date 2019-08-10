@@ -6,7 +6,7 @@
 
 ## Introduction:
 
-In this article we will create a kubernetes cluster from former principles. This will be achieved in a cloud independent fashion using the open-source deployment tool *kubespray*.
+In this article we will create a kubernetes cluster from former principles. This will be achieved in a cloud independent fashion using the open-source deployment tool *kubespray*. Additionally, we will deploy a dashboard and advanced logging tooling on to our cluster.
 
 This will be done on google cloud, a high-level cloud; this is for the sake of simplicity. However, as will be demonstarted, the cloud provider is not important, and therefore this guide is applicable to all cloud providers. All that matters is that the machines exist and are up.
 

@@ -74,7 +74,9 @@ sudo apt install docker.io -y
 sudo docker run -d --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher
 ```
 
-Now you access the rancher web UI from the bastion hosts ip. Import your cluster into Rancher by following the instructions. After a few minutes, you will have a clean dashboard that can visualize and edit the components within your kubernetes cluster.
+We do not want to deploy the rancher container on to the cluster, as it can easily churn which is troublesome if no persistent volumes are attached.
+
+Now you can access the rancher web UI from the bastion hosts IP entered into a browser, then create an admin account and login. Import your cluster into Rancher by following the instructions. After a few minutes, you will have a clean dashboard that can visualize and edit the components within your kubernetes cluster.
 
 10. Install helm on the master node and deploy the server side component (tiller) on to your cluster:
 

@@ -20,7 +20,7 @@ In the steps that follow, we will create 3 Ubuntu 18.04 instances comprising of 
 
 1. Create 3 ubuntu 18.04 instances with at least 2 vCPU. 1 instance is a bastion host, 1 instance is a master, 1 instance is a worker. You can do this manually, or via an infrastucture-as-code automation tool.
 
-NOTE: If you go below 2 vCPU on your nodes, you will not be able to run the fluentbit and elasticsearch pods. These are cpu and memory hungry applications.
+*NOTE:* If you go below 2 vCPU on your nodes, you will not be able to run the fluentbit and elasticsearch pods. These are generally cpu and memory hungry applications given the rate at which data is being queried and its scope.
 
 2. ssh into the bastion host, in the home directory run (copy and paste into the shell):
 

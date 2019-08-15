@@ -87,4 +87,4 @@ kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceac
 helm init --service-account tiller
 ```
 
-You can now deploy the EFK helm chart on to your cluster, be it from the rancher web UI (<cluster name>/Default, select "Apps" from the top panel, then click "Launch", scroll down until you see the EFK stack and click "view details", scroll down again and click "Launch"), or from the command line, this decision is up to you as the result is the same.
+You can now deploy the EFK helm chart on to your cluster, be it from the command line or by plain deployments via the rancher UI Apps (<cluster name>/Default, select "Apps" from the top panel, then click "Launch", scroll down until you see the EFK stack and click "view details", scroll down again and click "Launch"), this decision is up to you as the result is the same.
